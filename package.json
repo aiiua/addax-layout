@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "commit": "./node_modules/.bin/git-cz",
+    "lint:style": "vue-cli-service lint:style",
     "push": "node commitlint.script.js",
     "release": "standard-version"
   },
@@ -17,6 +18,7 @@
     "vuex": "^3.1.2"
   },
   "devDependencies": {
+    "@ascendancyy/vue-cli-plugin-stylelint": "~1.1.2",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@gfx/zopfli": "^1.0.14",
@@ -47,6 +49,7 @@
     "lint-staged": "^10.0.8",
     "shelljs": "^0.8.3",
     "standard-version": "^7.1.0",
+    "stylelint-config-standard": "^18.2.0",
     "vue-cli-plugin-commitlint-release": "^1.1.4",
     "vue-cli-plugin-iview": "^2.0.0",
     "vue-template-compiler": "^2.6.11"
@@ -66,8 +69,6 @@
     "*.{js,jsx,vue}": [
       "vue-cli-service lint"
     ],
-    "*.{css, less}": [
-      "vue-cli-service lint:style"
-    ]
+    "**/*.less": "stylelint --syntax less"
   }
 }
