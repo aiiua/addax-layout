@@ -1,5 +1,5 @@
 module.exports = {
-     // 预设
+    // 预设
     presets: [
         ['@vue/app', {
             useBuiltIns: 'entry',
