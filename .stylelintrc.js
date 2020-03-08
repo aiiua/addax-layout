@@ -1,11 +1,7 @@
 module.exports = {
-    // 扩展检查配置
-    'extends': 'stylelint-config-standard',
-    //
-    'syntax': 'less',
-    //
     root: true,
-    // 规则
+    'extends': 'stylelint-config-standard',
+    'syntax': 'less',
     rules: {
         indentation: 4,
     }
