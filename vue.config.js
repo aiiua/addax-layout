@@ -116,21 +116,14 @@ module.exports = {
 
     // less全局引入
     pluginOptions: {
-        // // 样式资源处理器
-        // 'style-resources-loader': {
-        //     // 预处理格式
-        //     preProcessor: 'less',
-        //     // 匹配格式模式
-        //     patterns: [
-        //         path.resolve(__dirname, './src/assets/styles/common/index.less')
-        //     ]
-        // },
-        // 构建过程检查格式
-        lintStyleOnBuild: true,
-        //
-        stylelint: {}
+        lintStyleOnBuild: false,
+        stylelint: {
+            fix: true,
+            files: ['src/**/*.vue', 'src/assets/styles/*.l?(e|c)ss']
+        }
     },
-    // // 服务端api代理
+
+    // 服务端api代理
     devServer: {
         // proxy: 'http://47.114.38.228:9000'
         host: '0.0.0.0',
