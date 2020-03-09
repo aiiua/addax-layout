@@ -1,9 +1,9 @@
 {
   "name": "@addax/layout",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": "aiiua",
-  "description": "## Project setup ``` npm install ```",
+  "description": "a admin layout",
   "main": "dist/addax.common.js",
   "files": [
     "dist"
