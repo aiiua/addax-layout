@@ -1,14 +1,35 @@
 {
-  "name": "addax-layout",
-  "version": "0.1.1",
+  "name": "@addax/layout",
+  "version": "0.1.2",
   "license": "MIT",
-  "author": "addax@aiiua.com",
+  "author": "aiiua",
+  "description": "## Project setup ``` npm install ```",
+  "main": "dist/addax.common.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiiua/addax-layout.git"
+  },
+  "keywords": [
+    "vue",
+    "iview",
+    "admin",
+    "template",
+    "layout"
+  ],
+  "bugs": {
+    "url": "https://github.com/aiiua/addax-layout/issues"
+  },
+  "homepage": "https://github.com/aiiua/addax-layout#readme",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "lib": "vue-cli-service build --target lib --name addax src/components/index.js",
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "commit": "./node_modules/.bin/git-cz",
+    "commit": "git-cz",
     "lint:style": "vue-cli-service lint:style",
     "push": "node commitlint.script.js",
     "release": "standard-version"
