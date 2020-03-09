@@ -32,6 +32,7 @@ module.exports = {
 
     // webpack配置，值位对象时会合并配置，为方法时会改写配置
     configureWebpack: config => {
+        config.output.libraryExport = 'default'
         //
         config.devtool = 'source-map'
         // 开发环境配置
@@ -91,7 +92,7 @@ module.exports = {
     // 为css/sass/less提供全局样式，以及全局变量
     css: {
         // 运行环境
-        extract: !env,
+        extract: false,
         // 启用 CSS modules for all css / pre-processor files(v3用modules v4用requireModuleExtension)
         requireModuleExtension: true,
         // css预处理器配置
