@@ -4,7 +4,7 @@
   "license": "MIT",
   "author": "aiiua",
   "description": "a admin layout",
-  "main": "dist/addax.common.js",
+  "main": "lib/addax.umd.min.js",
   "files": [
     "dist"
   ],
@@ -26,7 +26,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lib": "vue-cli-service build --target lib --name addax src/components/index.js",
+    "lib": "vue-cli-service build --target lib --name addax --dest lib src/components/index.js",
     "lint": "vue-cli-service lint",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
     "commit": "git-cz",
