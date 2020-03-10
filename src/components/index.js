@@ -9,9 +9,22 @@ const components = {
 }
 
 const install = Vue => {
+    if (install.installed) return
+
     Object.keys(components).forEach(key => {
+        console.log(key)
         Vue.component(key, components[key])
     })
 }
 
-module.exports.default = module.exports = install
+// auto install
+if (typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue)
+}
+
+const API = {
+    install,
+    ...components
+}
+
+module.exports.default = module.exports = API
