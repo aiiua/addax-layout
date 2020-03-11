@@ -30,6 +30,14 @@ module.exports = {
         'resize-detector'
     ],
 
+    pages: {
+        index: {
+            entry: 'examples/main.js',
+            template: 'public/index.html',
+            filename: 'index.html'
+        }
+    },
+
     // webpack配置，值位对象时会合并配置，为方法时会改写配置
     configureWebpack: config => {
         config.output.libraryExport = 'default'
@@ -74,6 +82,17 @@ module.exports = {
         config.resolve.symlinks(false)
         // 删除
         config.plugins.delete('prefetch')
+        // 使 packages 加入编译
+        config.module
+            .rule('js')
+            .include.add(resolve('packages'))
+            .end()
+            .use('babel')
+            .loader('babel-loader')
+            .tap(options => {
+                // 修改它的选项...
+                return options
+            })
         // 解析别名
         config.resolve.alias
             .set('@', resolve('src/components'))

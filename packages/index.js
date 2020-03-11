@@ -1,6 +1,6 @@
-import AddaxHeader from './header'
-import AddaxLoading from './loading'
-import AddaxSider from './sider'
+import AddaxHeader from './components/header'
+import AddaxLoading from './components/loading'
+import AddaxSider from './components/sider'
 
 const components = {
     AddaxHeader,
@@ -12,7 +12,6 @@ const install = Vue => {
     if (install.installed) return
 
     Object.keys(components).forEach(key => {
-        console.log(key)
         Vue.component(key, components[key])
     })
 }
@@ -27,4 +26,4 @@ const API = {
     ...components
 }
 
-module.exports.default = module.exports = API
+export default API
