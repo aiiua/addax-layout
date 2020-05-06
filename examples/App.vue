@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { AddaxHeader } from '../lib/addax.umd'
+import { AddaxHeader } from '../lib/addax.umd.min'
 export default {
     name: 'app',
 
