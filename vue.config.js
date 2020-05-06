@@ -20,7 +20,7 @@ module.exports = {
     * map文件的作用在于：项目打包后，代码都是经过压缩加密的，如果运行时报错，输出的错误信息无法准确得知是哪里的代码报错。
     * 有了map就可以像未加密的代码一样，准确的输出是哪一行哪一列有错。
     * */
-    productionSourceMap: env,
+    productionSourceMap: false,
     // 运行时编译
     // 是否使用包含运行时编译器的 Vue 构建版本。设置为 true 后你就可以在 Vue 组件中使用 template 选项了，但是这会让你的应用额外增加 10kb 左右。(默认false)
     runtimeCompiler: true,
@@ -29,6 +29,14 @@ module.exports = {
         // 检测元素变化
         'resize-detector'
     ],
+
+    pages: {
+        index: {
+            entry: 'examples/main.js',
+            template: 'public/index.html',
+            filename: 'index.html'
+        }
+    },
 
     // webpack配置，值位对象时会合并配置，为方法时会改写配置
     configureWebpack: config => {
@@ -74,9 +82,20 @@ module.exports = {
         config.resolve.symlinks(false)
         // 删除
         config.plugins.delete('prefetch')
+        // 使 packages 加入编译
+        config.module
+            .rule('js')
+            .include.add(resolve('packages'))
+            .end()
+            .use('babel')
+            .loader('babel-loader')
+            .tap(options => {
+                // 修改它的选项...
+                return options
+            })
         // 解析别名
         config.resolve.alias
-            .set('components', resolve('src/components'))
+            .set('@', resolve('src/components'))
             .set('styles', resolve('src/assets/styles'))
             .set('images', resolve('src/assets/images'))
             .set('icons', resolve('src/assets/icons'))
@@ -126,17 +145,9 @@ module.exports = {
 
     // 服务端api代理
     devServer: {
-        // proxy: 'http://47.114.38.228:9000'
         host: '0.0.0.0',
-        proxy: {
-            '/api': {
-                target: 'http://47.114.38.228:9000',
-                changeOrigin: true,
-                ws: true,
-                pathRewrite: {
-                    '^/api': ''
-                }
-            }
-        }
+        port: 8091,
+        hot: true,
+        open: 'Google Chrome'
     }
 }
