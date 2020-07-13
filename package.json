@@ -72,7 +72,7 @@
     "less-loader": "^5.0.0",
     "lint-staged": "^10.0.8",
     "shelljs": "^0.8.3",
-    "standard-version": "^7.1.0",
+    "standard-version": "^8.0.1",
     "stylelint-config-standard": "^20.0.0",
     "vue-cli-plugin-commitlint-release": "^1.1.4",
     "vue-cli-plugin-iview": "^2.0.0",
